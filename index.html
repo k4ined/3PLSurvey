@@ -32,7 +32,8 @@ iframe {
 		const baseURL= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
 		let params = (new URL(document.location)).searchParams;
 		const URL = baseURL + '?plantcode='+ params.get("plantcode")
-		$('#iframe').attr('src', URL); 
+		let iframeElement = document.getElementById("iframe");
+		iframeElement.src=URL;
 		
 	</script>
 </html>
