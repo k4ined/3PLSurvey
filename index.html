@@ -30,8 +30,10 @@ iframe {
 </body>
 	<script>
 		let baseURL= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
-		let params = (new URL(document.location)).searchParams;
-		let iframeURL = baseURL + '?plantcode='+ params.get("plantcode").toUpperCase();
+		//let params = (new URL(document.location)).searchParams;
+		let params = new URLSearchParams(window.location.search).toString();
+		//let iframeURL = baseURL + '?plantcode='+ params.get("plantcode").toUpperCase();
+		let iframeURL = baseURL + '?'+params;
 		let iframeElement = document.getElementById("iframe");
 		iframeElement.src=iframeURL;
 		console.log (iframeURL);
