@@ -34,7 +34,7 @@ iframe {
 		let params = new URLSearchParams(window.location.search).toString();
 		//let iframeURL = baseURL + '?plantcode='+ params.get("plantcode").toUpperCase();
 		let iframeURL = baseURL + '?'+params;
-		console.log (iframeURL);
+		//console.log (iframeURL);
 		let iframeElement = document.getElementById("iframe");
 		iframeElement.src=iframeURL;
 		console.log (iframeURL);
