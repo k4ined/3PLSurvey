@@ -29,42 +29,7 @@ iframe {
 
 </body>
 	<script>
-	      // Local storage proxy for third party cookie workaround 
-	      let storageOrUndefined;
-	      try {
-	        storageOrUndefined = window.localStorage;
-	        console.log ("storage localStorage");
-	
-	      } catch (e) {
-	        console.log ("storage undefined");
-	        storageOrUndefined = undefined;
-	      }
-	      const isIframe = window !== window.top;
-	      if (isIframe) {
-	          const lsProxy = new Proxy(
-	          {},
-	          {
-	            get: (_, prop, __) => (argument) => {
-	              if (!storageOrUndefined) {
-	                return null;
-	              }
-	              try {
-	                return storageOrUndefined[prop](argument);
-	              } catch (e) {
-	                return null;
-	              }
-	            },
-	          }
-	        );
-	        Object.defineProperty(window, "localStorage", {
-	          value: lsProxy,
-	          configurable: true,
-	          enumerable: true,
-	          writable: true,
-	        });
-	      }  
 
-		
 		let baseURL= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
 		//let params = (new URL(document.location)).searchParams;
 		let params = new URLSearchParams(window.location.search).toString();
