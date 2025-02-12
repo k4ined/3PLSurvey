@@ -31,14 +31,23 @@ iframe {
 
 </body>
 	<script>
-
-		let baseURL= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
+		let baseURL;
+		let baseURL_v1= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
+		let baseURL_v2= "https://script.google.com/macros/s/AKfycbwRER8XkVK15ajzKK7XOf_a2xtxLIZulqtx0sB-At3Owah1oG-Wm3g-7_4ao9o8YSMe/exec";
 		//let params = (new URL(document.location)).searchParams;
 		let params = new URLSearchParams(window.location.search);
 
-		console.log (params.toString());
+		// check for versioning and set URL
 		if (params.has('ver')){
 			console.log (params.get('ver'))
+			switch (params.get('ver')){
+				case '1'
+					baseURL = baseURL_v1;
+					break;
+				case '1'
+					baseURL = baseURL_v2;
+					break;
+			}
 		}
 		
 		let iframeURL = baseURL + '?'+params.toString();
