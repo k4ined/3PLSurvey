@@ -34,12 +34,14 @@ iframe {
 
 		let baseURL= "https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec";
 		//let params = (new URL(document.location)).searchParams;
-		let params = new URLSearchParams(window.location.search).toString();
-		let iframeURL = baseURL + '?'+params;
+		let params = new URLSearchParams(window.location.search);
+
 		console.log (params.toString());
 		if (params.has('ver')){
 			console.log (params.get('ver'))
 		}
+		
+		let iframeURL = baseURL + '?'+params.toString();
 		let iframeElement = document.getElementById("iframe");
 		iframeElement.src=iframeURL;
 	</script>
