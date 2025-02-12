@@ -36,6 +36,10 @@ iframe {
 		//let params = (new URL(document.location)).searchParams;
 		let params = new URLSearchParams(window.location.search).toString();
 		let iframeURL = baseURL + '?'+params;
+		console.log (params)
+		if ('ver' in params){
+			console.log (params.parameter.ver)
+		}
 		let iframeElement = document.getElementById("iframe");
 		iframeElement.src=iframeURL;
 	</script>
