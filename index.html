@@ -40,11 +40,11 @@ iframe {
 		// check for versioning and set URL
 		if (params.has('ver')){
 			console.log (params.get('ver'))
-			switch (params.get('ver')){
-				case '1'
+			switch (params.get('ver').toString()){
+				case '1':
 					baseURL = baseURL_v1;
 					break;
-				case '1'
+				case '2':
 					baseURL = baseURL_v2;
 					break;
 			}
