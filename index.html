@@ -49,6 +49,9 @@ iframe {
 					break;
 			}
 		}
+		else{
+			baseURL = baseURL_v1;
+		}
 		
 		let iframeURL = baseURL + '?'+params.toString();
 		let iframeElement = document.getElementById("iframe");
