@@ -50,8 +50,16 @@ iframe {
 			}
 		}
 		else{
-			baseURL = baseURL_v2;
+			if(params.has('dev')){
+				// Pre-release development URL
+				baseURL= "https://script.google.com/macros/s/AKfycbwbVhBiDTFwFkw-ceZMM2-t14_TMISk0D7d7wPhJ9VzzJtrk_1i9L3fTQ2IEvAm1PfK/exec"
+			} 
+			else{
+				baseURL = baseURL_v2;
+				}
 		}
+
+
 		
 		let iframeURL = baseURL + '?'+params.toString();
 		let iframeElement = document.getElementById("iframe");
