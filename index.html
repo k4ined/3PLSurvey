@@ -19,13 +19,31 @@ iframe {
     width: 100%;
     height: 100%;
 }
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db; /* CHEP Blue? */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 </style>
 <body>
-	
+	<!-- Loading Overlay -->
+    <div id="loader" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+         background: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10;">
+        <div class="spinner"></div> <!-- Add CSS for this below -->
+        <p style="font-family: sans-serif; margin-top: 10px;">Initialising Survey...</p>
+    </div>
 	
 	<iframe id="iframe" src="https://script.google.com/macros/s/AKfycbzwH8omv_GxeLab3ThHuLCycv9pmzvshO-rW03utuzf1VGZBL6kPx6Dxp6p_0q8TFMF/exec"
 		frameborder="0"
 		sandbox="allow-same-origin allow-forms allow-scripts"
+		onload="hideLoader()"
 		>
 	</iframe>
 
@@ -58,12 +76,15 @@ iframe {
 				baseURL = baseURL_v2;
 				}
 		}
-
-
-		
 		let iframeURL = baseURL + '?'+params.toString();
 		let iframeElement = document.getElementById("iframe");
 		iframeElement.src=iframeURL;
+
+		function hideLoader() {
+		    const loader = document.getElementById('loader');
+		    // Fade out or just hide
+		    loader.style.display = 'none';
+		}
 	</script>
 </html>
 	 
